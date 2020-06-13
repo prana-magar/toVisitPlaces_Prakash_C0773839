@@ -25,8 +25,11 @@ class MapViewController: UIViewController {
         // update map info
         locationManager.startUpdatingLocation()
         
+        // register the tap guester  by user to add a pin
+        let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(addDestinationPin))
         
-        // Do any additional setup after loading the view.
+        // add the guesture to map
+        mapView.addGestureRecognizer(tapGuesture)
     }
 
 
@@ -59,7 +62,30 @@ extension MapViewController: CLLocationManagerDelegate{
         
         // add region to map
         mapView.setRegion(region, animated: true)
+
+    }
+    
+    @objc func addDestinationPin(tapGuesture: UITapGestureRecognizer){
+        
+        // the touched point in the view. here its UIMapKit
+        let touchPoint = tapGuesture.location(in: mapView)
+        
+        // get the cordinate from the touch point
+        let destinationLocation = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        
+        // add the annotaion at this point
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.coordinate = destinationLocation
+        destinationAnnotation.title = "Destination"
+        
+        // Add the annotation to map view
+        mapView.addAnnotation(destinationAnnotation)
+        
+        
+        
         
     }
+    
+    
 }
 
