@@ -27,6 +27,7 @@ class MapViewController: UIViewController {
         
         // register the tap guester  by user to add a pin
         let tapGuesture = UITapGestureRecognizer(target: self, action: #selector(addDestinationPin))
+        tapGuesture.numberOfTapsRequired = 2
         
         // add the guesture to map
         mapView.addGestureRecognizer(tapGuesture)
