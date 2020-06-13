@@ -79,12 +79,18 @@ extension MapViewController: CLLocationManagerDelegate{
         destinationAnnotation.coordinate = destinationLocation
         destinationAnnotation.title = "Destination"
         
+        // remove all other annotaion
+        removeAllMarkers()
+        
         // Add the annotation to map view
         mapView.addAnnotation(destinationAnnotation)
-        
-        
-        
-        
+
+    }
+    
+    func removeAllMarkers(){
+        for annotation in mapView.annotations{
+            mapView.removeAnnotation(annotation)
+        }
     }
     
     
