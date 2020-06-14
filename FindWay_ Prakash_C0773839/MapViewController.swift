@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController {
 
     
+    @IBOutlet weak var carBtn: UIButton!
+    @IBOutlet weak var walkingBtn: UIButton!
     var destination: CLLocationCoordinate2D!
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -37,6 +39,19 @@ class MapViewController: UIViewController {
         mapView.addGestureRecognizer(tapGuesture)
     }
 
+    @IBAction func displayCarRoute(_ sender: Any) {
+        // remove all overlays
+       mapView.removeOverlays(mapView.overlays)
+        displayRoute(transportType: .automobile)
+
+        
+    }
+    @IBAction func displayWalkingRoute(_ sender: Any) {
+        // remove all overlays
+       mapView.removeOverlays(mapView.overlays)
+       displayRoute(transportType: .walking)
+
+    }
     @IBAction func directionBtn(_ sender: Any) {
         displayRoute(transportType: .walking)
       

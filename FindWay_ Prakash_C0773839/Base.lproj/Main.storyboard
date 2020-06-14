@@ -31,6 +31,9 @@
                                                     <constraint firstAttribute="height" constant="40" id="wb9-cx-0Ty"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="walk.png"/>
+                                                <connections>
+                                                    <action selector="displayWalkingRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vq0-Vj-K2e"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XT-bL-r9l">
                                                 <rect key="frame" x="110" y="0.0" width="40" height="40"/>
@@ -39,6 +42,9 @@
                                                     <constraint firstAttribute="width" constant="40" id="OQL-wh-h4g"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="car.png"/>
+                                                <connections>
+                                                    <action selector="displayCarRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r1X-kl-5kH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -76,7 +82,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="carBtn" destination="5XT-bL-r9l" id="tT2-Jg-TFl"/>
                         <outlet property="mapView" destination="LjZ-8D-kLg" id="5jK-HI-PFy"/>
+                        <outlet property="walkingBtn" destination="5X7-i7-okA" id="iAM-NI-SUN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
