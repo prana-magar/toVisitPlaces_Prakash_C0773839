@@ -222,6 +222,12 @@ extension MapViewController: MKMapViewDelegate{
             let rendrer = MKPolylineRenderer(overlay: overlay)
             rendrer.strokeColor = UIColor.blue
             rendrer.lineWidth = 3
+            
+            if(transportType == MKDirectionsTransportType.walking){
+                rendrer.lineWidth = 8
+                rendrer.lineDashPattern = [0, 10]
+            }
+            
             return rendrer
         }
         return MKOverlayRenderer()
