@@ -11,10 +11,14 @@ import MapKit
 
 class MapViewController: UIViewController {
 
+    
+    var destination: CLLocationCoordinate2D!
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
         
         // Add delegate
         locationManager.delegate = self
@@ -34,10 +38,48 @@ class MapViewController: UIViewController {
     }
 
     @IBAction func directionBtn(_ sender: Any) {
-        print("button pressed")
+        displayRoute(transportType: .walking)
+      
     }
     
+    
+    func displayRoute(transportType: MKDirectionsTransportType){
+        
+
+        
+        // add mark for source and destination
+          let sourcePlaceMark = MKPlacemark(coordinate: locationManager.location!.coordinate)
+          let destinationPlaceMark = MKPlacemark(coordinate: destination)
+                  
+          // request a direction
+          let directionRequest = MKDirections.Request()
+          
+          // define source and destination
+          directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+          directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
+          
+          // transportation type
+          directionRequest.transportType = transportType
+          
+          // calculate directions
+          let directions = MKDirections(request: directionRequest)
+          directions.calculate { (response, error) in
+              guard let directionResponse = response else {print("error"); return}
+              // create route
+              let route = directionResponse.routes[0]
+              
+              // draw the polyline
+              self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+              
+              // defining the bounding map rect
+              let rect = route.polyline.boundingMapRect
+
+              self.mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
+          }
+        
+    }
 }
+    
 
 
 
@@ -71,6 +113,9 @@ extension MapViewController: CLLocationManagerDelegate{
     
     @objc func addDestinationPin(tapGuesture: UITapGestureRecognizer){
         
+        // remove all overlays
+        mapView.removeOverlays(mapView.overlays)
+        
         // the touched point in the view. here its UIMapKit
         let touchPoint = tapGuesture.location(in: mapView)
         
@@ -88,6 +133,7 @@ extension MapViewController: CLLocationManagerDelegate{
         
         // Add the annotation to map view
         mapView.addAnnotation(destinationAnnotation)
+        destination = destinationLocation
 
     }
     
@@ -100,3 +146,18 @@ extension MapViewController: CLLocationManagerDelegate{
     
 }
 
+
+extension MapViewController: MKMapViewDelegate{
+    
+    //MARK: - render for overlay
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+       
+        if overlay is MKPolyline {
+            let rendrer = MKPolylineRenderer(overlay: overlay)
+            rendrer.strokeColor = UIColor.blue
+            rendrer.lineWidth = 3
+            return rendrer
+        }
+        return MKOverlayRenderer()
+    }
+}
