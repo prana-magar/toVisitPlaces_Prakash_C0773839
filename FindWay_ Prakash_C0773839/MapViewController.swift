@@ -45,7 +45,9 @@ class MapViewController: UIViewController {
     
     func displayRoute(transportType: MKDirectionsTransportType){
         
-
+        if(destination == nil){
+            return
+        }
         
         // add mark for source and destination
           let sourcePlaceMark = MKPlacemark(coordinate: locationManager.location!.coordinate)

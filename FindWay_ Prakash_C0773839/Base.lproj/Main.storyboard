@@ -18,20 +18,58 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjZ-8D-kLg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0A-iA-Rrs">
-                                <rect key="frame" x="329" y="772" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <size key="titleShadowOffset" width="6" height="6"/>
-                                <state key="normal" title="Button" image="compass.png"/>
-                                <connections>
-                                    <action selector="directionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHA-zZ-lk4"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Iy9-5F-bjP">
+                                <rect key="frame" x="10" y="801" width="394" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="M5o-vW-i1j">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5X7-i7-okA">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="8tD-4p-X6b"/>
+                                                    <constraint firstAttribute="height" constant="40" id="wb9-cx-0Ty"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="walk.png"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XT-bL-r9l">
+                                                <rect key="frame" x="110" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="2Bf-Rt-81d"/>
+                                                    <constraint firstAttribute="width" constant="40" id="OQL-wh-h4g"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="car.png"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="i7y-Lt-7qw"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0A-iA-Rrs">
+                                        <rect key="frame" x="354" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="7QE-5s-iSf"/>
+                                            <constraint firstAttribute="height" constant="40" id="xLq-a3-YlQ"/>
+                                        </constraints>
+                                        <size key="titleShadowOffset" width="6" height="6"/>
+                                        <state key="normal" title="Button" image="compass.png"/>
+                                        <connections>
+                                            <action selector="directionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHA-zZ-lk4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5aJ-fR-Eoi"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LjZ-8D-kLg" secondAttribute="bottom" id="6l4-6K-qQs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LjZ-8D-kLg" secondAttribute="trailing" id="6si-mR-wPr"/>
+                            <constraint firstItem="Iy9-5F-bjP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="7iv-wZ-oPB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iy9-5F-bjP" secondAttribute="trailing" constant="10" id="FQb-tt-p5S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iy9-5F-bjP" secondAttribute="bottom" constant="21" id="Pkk-vA-zor"/>
                             <constraint firstItem="LjZ-8D-kLg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wj8-Mr-Hla"/>
                             <constraint firstItem="LjZ-8D-kLg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p0C-6I-imq"/>
                         </constraints>
@@ -43,10 +81,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="130"/>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="car.png" width="384" height="384"/>
         <image name="compass.png" width="384" height="384"/>
+        <image name="walk.png" width="368.6400146484375" height="368.6400146484375"/>
     </resources>
 </document>
