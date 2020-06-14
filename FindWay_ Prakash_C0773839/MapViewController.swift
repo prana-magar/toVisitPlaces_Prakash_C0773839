@@ -178,6 +178,10 @@ extension MapViewController: CLLocationManagerDelegate{
         // remove all overlays
         mapView.removeOverlays(mapView.overlays)
         
+        // remove selected highlight in btn
+        carBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0)
+       walkingBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.0)
+        
         // the touched point in the view. here its UIMapKit
         let touchPoint = tapGuesture.location(in: mapView)
         
