@@ -18,6 +18,15 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjZ-8D-kLg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0A-iA-Rrs">
+                                <rect key="frame" x="329" y="772" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <size key="titleShadowOffset" width="6" height="6"/>
+                                <state key="normal" title="Button" image="compass.png"/>
+                                <connections>
+                                    <action selector="directionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wHA-zZ-lk4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -37,4 +46,7 @@
             <point key="canvasLocation" x="139" y="130"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="compass.png" width="384" height="384"/>
+    </resources>
 </document>

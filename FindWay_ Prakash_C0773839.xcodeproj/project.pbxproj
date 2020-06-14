@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB56ACBE2495B3A00069DC4D /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = AB56ACBD2495B3A00069DC4D /* compass.png */; };
 		AB8DB30B24953B2C00519E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DB30A24953B2C00519E53 /* AppDelegate.swift */; };
 		AB8DB30D24953B2C00519E53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DB30C24953B2C00519E53 /* SceneDelegate.swift */; };
 		AB8DB30F24953B2C00519E53 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8DB30E24953B2C00519E53 /* MapViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB56ACBD2495B3A00069DC4D /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		AB8DB30724953B2C00519E53 /* FindWay_ Prakash_C0773839.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FindWay_ Prakash_C0773839.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB8DB30A24953B2C00519E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB8DB30C24953B2C00519E53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB56ACBA2495B3160069DC4D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AB56ACBD2495B3A00069DC4D /* compass.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		AB8DB2FE24953B2C00519E53 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		AB8DB30924953B2C00519E53 /* FindWay_ Prakash_C0773839 */ = {
 			isa = PBXGroup;
 			children = (
+				AB56ACBA2495B3160069DC4D /* Images */,
 				AB8DB30A24953B2C00519E53 /* AppDelegate.swift */,
 				AB8DB30C24953B2C00519E53 /* SceneDelegate.swift */,
 				AB8DB30E24953B2C00519E53 /* MapViewController.swift */,
@@ -125,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB56ACBE2495B3A00069DC4D /* compass.png in Resources */,
 				AB8DB31724953B3200519E53 /* LaunchScreen.storyboard in Resources */,
 				AB8DB31424953B3200519E53 /* Assets.xcassets in Resources */,
 				AB8DB31224953B2C00519E53 /* Main.storyboard in Resources */,

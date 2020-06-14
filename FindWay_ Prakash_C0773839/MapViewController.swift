@@ -33,7 +33,10 @@ class MapViewController: UIViewController {
         mapView.addGestureRecognizer(tapGuesture)
     }
 
-
+    @IBAction func directionBtn(_ sender: Any) {
+        print("button pressed")
+    }
+    
 }
 
 
@@ -81,6 +84,7 @@ extension MapViewController: CLLocationManagerDelegate{
         
         // remove all other annotaion
         removeAllMarkers()
+        
         
         // Add the annotation to map view
         mapView.addAnnotation(destinationAnnotation)
