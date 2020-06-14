@@ -17,6 +17,8 @@ class MapViewController: UIViewController {
     var destination: CLLocationCoordinate2D!
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    var transportType: MKDirectionsTransportType = MKDirectionsTransportType.walking
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,26 +39,58 @@ class MapViewController: UIViewController {
         
         // add the guesture to map
         mapView.addGestureRecognizer(tapGuesture)
-    }
+        
+        // customize buttons
+        walkingBtn.layer.borderWidth = 2
+        walkingBtn.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
+        walkingBtn.layer.cornerRadius = 20
+        
+        walkingBtn.layer.shadowColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0.25)
+        walkingBtn.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        walkingBtn.layer.shadowOpacity = 1.0
+        walkingBtn.layer.shadowRadius = 1.0
+        walkingBtn.layer.masksToBounds = false
+        
+       
+        
+        
+        carBtn.layer.borderWidth = 2
+       carBtn.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
+       carBtn.layer.cornerRadius = 20
+}
 
     @IBAction func displayCarRoute(_ sender: Any) {
         // remove all overlays
-       mapView.removeOverlays(mapView.overlays)
+        transportType = .automobile
         displayRoute(transportType: .automobile)
+       
 
         
     }
     @IBAction func displayWalkingRoute(_ sender: Any) {
         // remove all overlays
-       mapView.removeOverlays(mapView.overlays)
+        transportType = .walking
        displayRoute(transportType: .walking)
+     
 
     }
     @IBAction func directionBtn(_ sender: Any) {
-        displayRoute(transportType: .walking)
+        displayRoute(transportType: transportType)
       
     }
     
+    @IBAction func minusBtn(_ sender: Any) {
+        var region: MKCoordinateRegion = mapView.region
+       region.span.latitudeDelta *= 2.0
+       region.span.longitudeDelta *= 2.0
+       mapView.setRegion(region, animated: true)
+    }
+    @IBAction func plusBtn(_ sender: Any) {
+        var region: MKCoordinateRegion = mapView.region
+           region.span.latitudeDelta /= 2.0
+           region.span.longitudeDelta /= 2.0
+           mapView.setRegion(region, animated: true)
+    }
     
     func displayRoute(transportType: MKDirectionsTransportType){
         
@@ -64,6 +98,17 @@ class MapViewController: UIViewController {
             return
         }
         
+        if transportType == MKDirectionsTransportType.walking{
+            carBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0)
+            walkingBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.4)
+        }
+        else{
+            carBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.4)
+           walkingBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0)
+        }
+        
+        mapView.removeOverlays(mapView.overlays)
+
         // add mark for source and destination
           let sourcePlaceMark = MKPlacemark(coordinate: locationManager.location!.coordinate)
           let destinationPlaceMark = MKPlacemark(coordinate: destination)
