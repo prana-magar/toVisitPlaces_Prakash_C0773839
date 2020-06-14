@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB31F39D2496A15600710AB9 /* automobile.png in Resources */ = {isa = PBXBuildFile; fileRef = AB31F3982496A15500710AB9 /* automobile.png */; };
+		AB31F39E2496A15600710AB9 /* destination.png in Resources */ = {isa = PBXBuildFile; fileRef = AB31F3992496A15500710AB9 /* destination.png */; };
+		AB31F39F2496A15600710AB9 /* user_location.png in Resources */ = {isa = PBXBuildFile; fileRef = AB31F39A2496A15500710AB9 /* user_location.png */; };
+		AB31F3A02496A15600710AB9 /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = AB31F39B2496A15600710AB9 /* walking.png */; };
+		AB31F3A12496A15600710AB9 /* zoom.png in Resources */ = {isa = PBXBuildFile; fileRef = AB31F39C2496A15600710AB9 /* zoom.png */; };
 		AB56ACBE2495B3A00069DC4D /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = AB56ACBD2495B3A00069DC4D /* compass.png */; };
 		AB56ACC12495BD300069DC4D /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = AB56ACBF2495BD300069DC4D /* car.png */; };
 		AB56ACC22495BD300069DC4D /* walk.png in Resources */ = {isa = PBXBuildFile; fileRef = AB56ACC02495BD300069DC4D /* walk.png */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB31F3982496A15500710AB9 /* automobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = automobile.png; sourceTree = "<group>"; };
+		AB31F3992496A15500710AB9 /* destination.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destination.png; sourceTree = "<group>"; };
+		AB31F39A2496A15500710AB9 /* user_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_location.png; sourceTree = "<group>"; };
+		AB31F39B2496A15600710AB9 /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
+		AB31F39C2496A15600710AB9 /* zoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom.png; sourceTree = "<group>"; };
 		AB56ACBD2495B3A00069DC4D /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.png; sourceTree = "<group>"; };
 		AB56ACBF2495BD300069DC4D /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		AB56ACC02495BD300069DC4D /* walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walk.png; sourceTree = "<group>"; };
@@ -43,6 +53,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB31F3972496A0BE00710AB9 /* Snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				AB31F3982496A15500710AB9 /* automobile.png */,
+				AB31F3992496A15500710AB9 /* destination.png */,
+				AB31F39A2496A15500710AB9 /* user_location.png */,
+				AB31F39B2496A15600710AB9 /* walking.png */,
+				AB31F39C2496A15600710AB9 /* zoom.png */,
+			);
+			path = Snapshots;
+			sourceTree = "<group>";
+		};
 		AB56ACBA2495B3160069DC4D /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +94,7 @@
 		AB8DB30924953B2C00519E53 /* FindWay_ Prakash_C0773839 */ = {
 			isa = PBXGroup;
 			children = (
+				AB31F3972496A0BE00710AB9 /* Snapshots */,
 				AB56ACBA2495B3160069DC4D /* Images */,
 				AB8DB30A24953B2C00519E53 /* AppDelegate.swift */,
 				AB8DB30C24953B2C00519E53 /* SceneDelegate.swift */,
@@ -143,10 +166,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB56ACBE2495B3A00069DC4D /* compass.png in Resources */,
+				AB31F3A02496A15600710AB9 /* walking.png in Resources */,
 				AB8DB31724953B3200519E53 /* LaunchScreen.storyboard in Resources */,
 				AB56ACC22495BD300069DC4D /* walk.png in Resources */,
+				AB31F39D2496A15600710AB9 /* automobile.png in Resources */,
+				AB31F3A12496A15600710AB9 /* zoom.png in Resources */,
+				AB31F39E2496A15600710AB9 /* destination.png in Resources */,
 				AB56ACC12495BD300069DC4D /* car.png in Resources */,
 				AB8DB31424953B3200519E53 /* Assets.xcassets in Resources */,
+				AB31F39F2496A15600710AB9 /* user_location.png in Resources */,
 				AB8DB31224953B2C00519E53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
