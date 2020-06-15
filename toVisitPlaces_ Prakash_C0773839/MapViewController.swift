@@ -216,6 +216,23 @@ extension MapViewController: CLLocationManagerDelegate{
 
 extension MapViewController: MKMapViewDelegate{
     
+    // MARK: view for annotation
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
+        if annotation is MKUserLocation {
+                   return nil
+               }
+        
+        let pinAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: "droppablePin") ?? MKPinAnnotationView()
+        pinAnnotation.image = UIImage(named: "ic_place_3x")
+        pinAnnotation.canShowCallout = true
+        pinAnnotation.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        return pinAnnotation
+    }
+    
+    
+    
     //MARK: - render for overlay
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
        
