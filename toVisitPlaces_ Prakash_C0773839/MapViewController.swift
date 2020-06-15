@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-
+    
+    var selectedPlace: Place?
     
     @IBOutlet weak var carBtn: UIButton!
     @IBOutlet weak var walkingBtn: UIButton!
