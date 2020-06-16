@@ -192,7 +192,7 @@ extension MapViewController: CLLocationManagerDelegate{
         // add the annotaion at this point
         let destinationAnnotation = MKPointAnnotation()
         destinationAnnotation.coordinate = destinationLocation
-        destinationAnnotation.title = "Destination"
+        destinationAnnotation.title = "Add to Favourite"
         
         // remove all other annotaion
         removeAllMarkers()
@@ -227,11 +227,20 @@ extension MapViewController: MKMapViewDelegate{
         let pinAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: "droppablePin") ?? MKPinAnnotationView()
         pinAnnotation.image = UIImage(named: "ic_place_3x")
         pinAnnotation.canShowCallout = true
-        pinAnnotation.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        
+        pinAnnotation.rightCalloutAccessoryView = UIButton(type: .contactAdd)
         return pinAnnotation
     }
     
+    //MARK: - callout accessory control tapped
+       func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+           let alertController = UIAlertController(title: "Success", message: "Added to Favourite list", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in  PlaceManager.addPlace(place: Place(name: "test"))})
+           alertController.addAction(cancelAction)
+           present(alertController, animated: true, completion: nil)
+       }
     
+   
     
     //MARK: - render for overlay
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

@@ -9,7 +9,17 @@
 import Foundation
 import MapKit
 
-class Place {
+class Place:   NSObject, NSCoding   {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        self.init(name: name)
+    }
+    
     var name: String
     
     init( name: String) {
