@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     var selectedPlace: Place?
+    var destinationLocation:  CLLocationCoordinate2D!
     
     @IBOutlet weak var carBtn: UIButton!
     @IBOutlet weak var walkingBtn: UIButton!
@@ -187,7 +188,7 @@ extension MapViewController: CLLocationManagerDelegate{
         let touchPoint = tapGuesture.location(in: mapView)
         
         // get the cordinate from the touch point
-        let destinationLocation = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        destinationLocation = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
         // add the annotaion at this point
         let destinationAnnotation = MKPointAnnotation()
@@ -235,7 +236,7 @@ extension MapViewController: MKMapViewDelegate{
     //MARK: - callout accessory control tapped
        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
            let alertController = UIAlertController(title: "Success", message: "Added to Favourite list", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in  PlaceManager.addPlace(place: Place(name: "test"))})
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in  PlaceManager.addPlace(place: Place(key: String(self.destinationLocation.latitude) + ":" +             String(self.destinationLocation.longitude) , latitude: String(self.destinationLocation.latitude), longitude: String(self.destinationLocation.longitude)))})
            alertController.addAction(cancelAction)
            present(alertController, animated: true, completion: nil)
        }

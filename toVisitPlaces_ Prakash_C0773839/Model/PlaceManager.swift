@@ -29,7 +29,7 @@ class PlaceManager {
     static func removePlace(place: Place){
         var places = getAllPlaces()
         places.removeAll { (plc) -> Bool in
-            plc.name == place.name
+            plc.key == place.key
         }
         setPlaces(places: places)
     }

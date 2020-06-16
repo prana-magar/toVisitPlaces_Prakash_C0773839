@@ -39,17 +39,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "723DB538-500A-4E78-87D7-95D685939B78"
+            uuid = "0EE45EAD-8DE4-4EB3-BD35-86F3D39D36FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "toVisitPlaces_ Prakash_C0773839/Model/PlaceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "addPlace(place:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9C5043B8-4C94-41A8-B695-91B7ABE7739A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "toVisitPlaces_ Prakash_C0773839/Model/PlaceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "PlaceManager"
-            landmarkType = "3">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "setPlaces(places:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4A3AD45-E782-4077-B661-FBB5FF432444"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "toVisitPlaces_ Prakash_C0773839/Model/Place.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(coder:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4A3AD45-E782-4077-B661-FBB5FF432444 - 3ba0f888adf8231"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "toVisitPlaces__Prakash_C0773839.Place.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;toVisitPlaces__Prakash_C0773839.Place&gt;"
+                  moduleName = "toVisitPlaces_ Prakash_C0773839"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prana/IOS/toVisitPlaces_Prakash_C0773839/toVisitPlaces_%20Prakash_C0773839/Model/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "11">
+               </Location>
+               <Location
+                  uuid = "D4A3AD45-E782-4077-B661-FBB5FF432444 - e0c973b391df3d0c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "toVisitPlaces__Prakash_C0773839.Place.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;toVisitPlaces__Prakash_C0773839.Place&gt;"
+                  moduleName = "toVisitPlaces_ Prakash_C0773839"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prana/IOS/toVisitPlaces_Prakash_C0773839/toVisitPlaces_%20Prakash_C0773839/Model/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "181">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

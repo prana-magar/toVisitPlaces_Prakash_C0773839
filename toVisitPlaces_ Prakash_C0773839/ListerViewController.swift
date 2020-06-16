@@ -12,9 +12,7 @@ class ListerViewController: UIViewController {
 
     @IBOutlet weak var placesTable: UITableView!
     
-    var places = [ Place( name: "Toronto"),
-    Place( name: "Toronto2"),
-    Place(name: "Toronto2")]
+   
     
     
     override func viewDidLoad() {
@@ -24,6 +22,10 @@ class ListerViewController: UIViewController {
         placesTable.delegate = self
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        placesTable.reloadData()
     }
     
     @IBAction func addBtnDown(_ sender: Any) {
@@ -48,12 +50,12 @@ class ListerViewController: UIViewController {
 
 extension ListerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        places.count
+        PlaceManager.getAllPlaces().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell")
-        cell?.textLabel?.text = places[indexPath.row].name
+        cell?.textLabel?.text = PlaceManager.getAllPlaces()[indexPath.row].key
         return cell!
     }
     
@@ -64,7 +66,8 @@ extension ListerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{
-            places.remove(at: indexPath.row)
+            let placeToDelete = PlaceManager.getAllPlaces()[indexPath.row]
+            PlaceManager.removePlace(place: placeToDelete)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()

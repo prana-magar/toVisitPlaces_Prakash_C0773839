@@ -11,18 +11,27 @@ import MapKit
 
 class Place:   NSObject, NSCoding   {
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: "name")
+        aCoder.encode(key, forKey: "key")
+        aCoder.encode(latitude, forKey: "latitude")
+        aCoder.encode(longitude, forKey: "longitude")
         
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObject(forKey: "name") as! String
-        self.init(name: name)
+        let key = aDecoder.decodeObject(forKey: "key") as! String
+        let latitude = aDecoder.decodeObject(forKey: "latitude") as! String
+        let longitude = aDecoder.decodeObject(forKey: "longitude") as! String
+
+        self.init(key:key, latitude:latitude, longitude:longitude)
     }
     
-    var name: String
+    var key: String
+    var latitude: String
+    var longitude: String
     
-    init( name: String) {
-        self.name = name
+    init( key: String, latitude: String, longitude: String) {
+        self.key = key
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }
