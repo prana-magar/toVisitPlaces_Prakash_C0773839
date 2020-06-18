@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     var selectedPlace: Place?
+    var editMode: Bool = false
     var destinationLocation:  CLLocationCoordinate2D!
     
     @IBOutlet weak var carBtn: UIButton!
@@ -59,6 +60,28 @@ class MapViewController: UIViewController {
         carBtn.layer.borderWidth = 2
        carBtn.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
        carBtn.layer.cornerRadius = 20
+        
+        // if its edit mode render the favourite place
+        
+        if editMode == true{
+            let destinationAnnotation = MKPointAnnotation()
+                   
+            let latitude = (selectedPlace!.latitude as NSString).doubleValue
+            let longitude = (selectedPlace!.longitude as NSString).doubleValue
+
+           destinationLocation =  CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+           destinationAnnotation.coordinate = destinationLocation
+           
+           // remove all other annotaion
+           removeAllMarkers()
+           
+           
+           // Add the annotation to map view
+           mapView.addAnnotation(destinationAnnotation)
+           destination = destinationLocation
+            
+        }
+       
 }
 
     @IBAction func displayCarRoute(_ sender: Any) {
@@ -176,6 +199,16 @@ extension MapViewController: CLLocationManagerDelegate{
     }
     
     @objc func addDestinationPin(tapGuesture: UITapGestureRecognizer){
+        
+        if editMode == true {
+            let alertController = UIAlertController(title: "You can edit by dragging the pin", message: "", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel)
+               alertController.addAction(cancelAction)
+               present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+            
         
         // remove all overlays
         mapView.removeOverlays(mapView.overlays)

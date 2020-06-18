@@ -63,6 +63,15 @@ extension ListerViewController: UITableViewDelegate, UITableViewDataSource {
         true
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let storyBoard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+         let mapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        
+        mapViewController.selectedPlace = PlaceManager.getAllPlaces()[indexPath.row]
+        mapViewController.editMode = true
+         self.navigationController?.pushViewController(mapViewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{

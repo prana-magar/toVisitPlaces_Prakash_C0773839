@@ -24,6 +24,7 @@
 		AB8DB31224953B2C00519E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8DB31024953B2C00519E53 /* Main.storyboard */; };
 		AB8DB31424953B3200519E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8DB31324953B3200519E53 /* Assets.xcassets */; };
 		AB8DB31724953B3200519E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8DB31524953B3200519E53 /* LaunchScreen.storyboard */; };
+		AB90E342249AE59100642408 /* SelectedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90E341249AE59100642408 /* SelectedMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		AB8DB31324953B3200519E53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB8DB31624953B3200519E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB8DB31824953B3200519E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB90E341249AE59100642408 /* SelectedMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				AB8DB31524953B3200519E53 /* LaunchScreen.storyboard */,
 				AB8DB31824953B3200519E53 /* Info.plist */,
 				AB31F3A52497FCC400710AB9 /* ListerViewController.swift */,
+				AB90E341249AE59100642408 /* SelectedMapViewController.swift */,
 			);
 			path = "toVisitPlaces_ Prakash_C0773839";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				AB8DB30F24953B2C00519E53 /* MapViewController.swift in Sources */,
 				AB31F3A62497FCC400710AB9 /* ListerViewController.swift in Sources */,
+				AB90E342249AE59100642408 /* SelectedMapViewController.swift in Sources */,
 				AB8DB30B24953B2C00519E53 /* AppDelegate.swift in Sources */,
 				AB8DB30D24953B2C00519E53 /* SceneDelegate.swift in Sources */,
 				AB31F3A42497FC1200710AB9 /* Place.swift in Sources */,
