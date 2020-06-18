@@ -12,7 +12,7 @@ Add new place:
 
 
 Annotation for adding to favourite list:
-<img src="toVisitPlaces_%20Prakash_C0773839/tooltip/add.png" width="300">
+<img src="toVisitPlaces_%20Prakash_C0773839/Snapshots/tooltip.png" width="300">
 
 
 Success Feedback
