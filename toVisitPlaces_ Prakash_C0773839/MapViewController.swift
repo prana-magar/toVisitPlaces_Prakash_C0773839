@@ -65,6 +65,7 @@ class MapViewController: UIViewController {
         
         if editMode == true{
             let destinationAnnotation = MKPointAnnotation()
+            
                    
             let latitude = (selectedPlace!.latitude as NSString).doubleValue
             let longitude = (selectedPlace!.longitude as NSString).doubleValue
@@ -79,6 +80,9 @@ class MapViewController: UIViewController {
            // Add the annotation to map view
            mapView.addAnnotation(destinationAnnotation)
            destination = destinationLocation
+            
+            self.setUpMap(location: CLLocation(latitude: latitude, longitude: longitude)  )
+
             
         }
        
@@ -162,6 +166,8 @@ class MapViewController: UIViewController {
               let rect = route.polyline.boundingMapRect
 
               self.mapView.setVisibleMapRect(rect, edgePadding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), animated: true)
+            
+
           }
         
     }
@@ -176,6 +182,10 @@ extension MapViewController: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
+        
+        if editMode == true{
+            return
+        }
         setUpMap(location: userLocation)
     }
     
@@ -262,6 +272,10 @@ extension MapViewController: MKMapViewDelegate{
         pinAnnotation.image = UIImage(named: "ic_place_3x")
         pinAnnotation.canShowCallout = true
         
+        if editMode == true{
+             pinAnnotation.isDraggable = true
+        }
+        
         pinAnnotation.rightCalloutAccessoryView = UIButton(type: .contactAdd)
         return pinAnnotation
     }
@@ -269,7 +283,11 @@ extension MapViewController: MKMapViewDelegate{
     //MARK: - callout accessory control tapped
        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
            let alertController = UIAlertController(title: "Success", message: "Added to Favourite list", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in  PlaceManager.addPlace(place: Place(key: String(self.destinationLocation.latitude) + ":" +             String(self.destinationLocation.longitude) , latitude: String(self.destinationLocation.latitude), longitude: String(self.destinationLocation.longitude)))})
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in  PlaceManager.addPlace(place: Place(key: String(self.destinationLocation.latitude) + ":" +             String(self.destinationLocation.longitude) , latitude: String(self.destinationLocation.latitude), longitude: String(self.destinationLocation.longitude)))
+            
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        })
            alertController.addAction(cancelAction)
            present(alertController, animated: true, completion: nil)
        }
@@ -292,5 +310,24 @@ extension MapViewController: MKMapViewDelegate{
             return rendrer
         }
         return MKOverlayRenderer()
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+        if newState == MKAnnotationView.DragState.ending{
+            let droppedAt = view.annotation?.coordinate
+            
+            let lat = droppedAt?.latitude
+            let newLat = String(lat!)
+            
+            let long = droppedAt?.longitude
+            let newLong = String(long!)
+            
+            let newPlace = Place(key: newLat+":"+newLong, latitude: newLat, longitude: newLong)
+            PlaceManager.updatePlace(placeFrom: selectedPlace!, placeTo: newPlace)
+            
+            destination = droppedAt
+            selectedPlace = newPlace
+            
+        }
     }
 }
