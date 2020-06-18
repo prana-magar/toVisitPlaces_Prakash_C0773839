@@ -280,17 +280,91 @@ extension MapViewController: MKMapViewDelegate{
         return pinAnnotation
     }
     
-    //MARK: - callout accessory control tapped
-       func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-           let alertController = UIAlertController(title: "Success", message: "Added to Favourite list", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in  PlaceManager.addPlace(place: Place(key: String(self.destinationLocation.latitude) + ":" +             String(self.destinationLocation.longitude) , latitude: String(self.destinationLocation.latitude), longitude: String(self.destinationLocation.longitude)))
+    func getPlaceObj(lat : CLLocationDegrees, long : CLLocationDegrees) -> Place? {
+
+        var place: Place?
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: lat, longitude: long)){
             
-            self.navigationController?.popToRootViewController(animated: true)
+            placemark, error in
+            
+            
+            if let error = error as? CLError
+            {
+                print("CLError:", error)
+                return
+            }
+                
+            else if let placemark = placemark?[0]
+            {
+                        
+                
+                var placeName = ""
+                var city = ""
+                var postalCode = ""
+                var country = ""
+                if let name = placemark.name { placeName += name }
+                if let locality = placemark.subLocality { city += locality }
+                if let code = placemark.postalCode { postalCode += code }
+                if let countryName = placemark.country { country += countryName }
+                
+                place = Place(key: String(lat)+":"+String(long), latitude: String(lat), longitude: String(long), name: placeName, locality: city, postalCode: postalCode, country: country)
+                
+             }
+            
+        }
+        return place
+
+    }
+    
+    //MARK: - callout accessory control tapped
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        
+        // get geo info
+        
+        
+        let alertController = UIAlertController(title: "Success", message: "Added to Favourite list", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {(alert: UIAlertAction!) in
+            
+            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: self.destination.latitude, longitude: self.destination.longitude)){
+                
+                placemark, error in
+                
+                
+                if let error = error as? CLError
+                {
+                    print("CLError:", error)
+                    return
+                }
+                    
+                else if let placemark = placemark?[0]
+                {
+                            
+                    
+                    var placeName = ""
+                    var city = ""
+                    var postalCode = ""
+                    var country = ""
+                    if let name = placemark.name { placeName += name }
+                    if let locality = placemark.subLocality { city += locality }
+                    if let code = placemark.postalCode { postalCode += code }
+                    if let countryName = placemark.country { country += countryName }
+                    
+                    var place = Place(key: String(self.destination.latitude)+":"+String(self.destination.latitude), latitude: String(self.destination.latitude), longitude: String(self.destination.longitude), name: placeName, locality: city, postalCode: postalCode, country: country)
+                    
+                    PlaceManager.addPlace(place: place)
+                    self.navigationController?.popToRootViewController(animated: true)
+
+                    
+                 }
+                
+            }
+            
             
         })
-           alertController.addAction(cancelAction)
-           present(alertController, animated: true, completion: nil)
-       }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
    
     
@@ -317,16 +391,44 @@ extension MapViewController: MKMapViewDelegate{
             let droppedAt = view.annotation?.coordinate
             
             let lat = droppedAt?.latitude
-            let newLat = String(lat!)
             
             let long = droppedAt?.longitude
-            let newLong = String(long!)
-            
-            let newPlace = Place(key: newLat+":"+newLong, latitude: newLat, longitude: newLong)
-            PlaceManager.updatePlace(placeFrom: selectedPlace!, placeTo: newPlace)
             
             destination = droppedAt
-            selectedPlace = newPlace
+
+            
+            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: self.destination.latitude, longitude: self.destination.longitude)){
+                
+                placemark, error in
+                
+                
+                if let error = error as? CLError
+                {
+                    print("CLError:", error)
+                    return
+                }
+                    
+                else if let placemark = placemark?[0]
+                {
+                            
+                    
+                    var placeName = ""
+                    var city = ""
+                    var postalCode = ""
+                    var country = ""
+                    if let name = placemark.name { placeName += name }
+                    if let locality = placemark.subLocality { city += locality }
+                    if let code = placemark.postalCode { postalCode += code }
+                    if let countryName = placemark.country { country += countryName }
+                    
+                    let place = Place(key: String(self.destination.latitude)+":"+String(self.destination.latitude), latitude: String(self.destination.latitude), longitude: String(self.destination.longitude), name: placeName, locality: city, postalCode: postalCode, country: country)
+                    
+                    PlaceManager.updatePlace(placeFrom: self.selectedPlace!, placeTo: place)
+                    
+                    self.selectedPlace = place
+                 }
+                
+            }
             
         }
     }

@@ -78,8 +78,8 @@
             filePath = "toVisitPlaces_ Prakash_C0773839/Model/Place.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "init(coder:)"
             landmarkType = "7">
             <Locations>
@@ -129,6 +129,22 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "removePlace(place:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D6981EB-4D2D-49CF-B5D9-C831502E2CEA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "toVisitPlaces_ Prakash_C0773839/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "getPlaceObj(lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
