@@ -55,7 +55,20 @@ extension ListerViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell")
-        cell?.textLabel?.text = PlaceManager.getAllPlaces()[indexPath.row].key
+        let place = PlaceManager.getAllPlaces()[indexPath.row]
+        cell?.textLabel?.text = "\(place.name)"
+        cell?.detailTextLabel?.text = " \(place.locality), \(place.postalCode), \(place.country)"
+       
+        
+        if (indexPath.row % 2  != 0) {
+            cell?.contentView.backgroundColor = .lightGray
+           
+        }
+        
+       
+        
+        print(place.country)
+
         return cell!
     }
     
