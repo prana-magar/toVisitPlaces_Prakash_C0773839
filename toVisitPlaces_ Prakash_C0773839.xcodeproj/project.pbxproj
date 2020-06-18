@@ -25,6 +25,12 @@
 		AB8DB31424953B3200519E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8DB31324953B3200519E53 /* Assets.xcassets */; };
 		AB8DB31724953B3200519E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8DB31524953B3200519E53 /* LaunchScreen.storyboard */; };
 		AB90E342249AE59100642408 /* SelectedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90E341249AE59100642408 /* SelectedMapViewController.swift */; };
+		AB90E346249B14C400642408 /* lister.png in Resources */ = {isa = PBXBuildFile; fileRef = AB90E345249B14C400642408 /* lister.png */; };
+		AB90E34C249B14FE00642408 /* change.png in Resources */ = {isa = PBXBuildFile; fileRef = AB90E347249B14FD00642408 /* change.png */; };
+		AB90E34D249B14FE00642408 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = AB90E348249B14FD00642408 /* add.png */; };
+		AB90E34E249B14FE00642408 /* path.png in Resources */ = {isa = PBXBuildFile; fileRef = AB90E349249B14FD00642408 /* path.png */; };
+		AB90E34F249B14FE00642408 /* confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = AB90E34A249B14FD00642408 /* confirm.png */; };
+		AB90E350249B14FE00642408 /* tooltip.png in Resources */ = {isa = PBXBuildFile; fileRef = AB90E34B249B14FE00642408 /* tooltip.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +54,12 @@
 		AB8DB31624953B3200519E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB8DB31824953B3200519E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB90E341249AE59100642408 /* SelectedMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMapViewController.swift; sourceTree = "<group>"; };
+		AB90E345249B14C400642408 /* lister.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lister.png; sourceTree = "<group>"; };
+		AB90E347249B14FD00642408 /* change.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change.png; sourceTree = "<group>"; };
+		AB90E348249B14FD00642408 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		AB90E349249B14FD00642408 /* path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = path.png; sourceTree = "<group>"; };
+		AB90E34A249B14FD00642408 /* confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm.png; sourceTree = "<group>"; };
+		AB90E34B249B14FE00642408 /* tooltip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tooltip.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,12 @@
 		AB31F3972496A0BE00710AB9 /* Snapshots */ = {
 			isa = PBXGroup;
 			children = (
+				AB90E348249B14FD00642408 /* add.png */,
+				AB90E347249B14FD00642408 /* change.png */,
+				AB90E34A249B14FD00642408 /* confirm.png */,
+				AB90E349249B14FD00642408 /* path.png */,
+				AB90E34B249B14FE00642408 /* tooltip.png */,
+				AB90E345249B14C400642408 /* lister.png */,
 				AB31F3982496A15500710AB9 /* automobile.png */,
 				AB31F3992496A15500710AB9 /* destination.png */,
 				AB31F39A2496A15500710AB9 /* user_location.png */,
@@ -186,13 +204,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB56ACBE2495B3A00069DC4D /* compass.png in Resources */,
+				AB90E350249B14FE00642408 /* tooltip.png in Resources */,
 				AB31F3A02496A15600710AB9 /* walking.png in Resources */,
 				AB8DB31724953B3200519E53 /* LaunchScreen.storyboard in Resources */,
 				AB56ACC22495BD300069DC4D /* walk.png in Resources */,
+				AB90E34C249B14FE00642408 /* change.png in Resources */,
 				AB31F39D2496A15600710AB9 /* automobile.png in Resources */,
 				AB31F3A12496A15600710AB9 /* zoom.png in Resources */,
+				AB90E34D249B14FE00642408 /* add.png in Resources */,
 				AB31F39E2496A15600710AB9 /* destination.png in Resources */,
 				AB56ACC12495BD300069DC4D /* car.png in Resources */,
+				AB90E346249B14C400642408 /* lister.png in Resources */,
+				AB90E34E249B14FE00642408 /* path.png in Resources */,
+				AB90E34F249B14FE00642408 /* confirm.png in Resources */,
 				AB8DB31424953B3200519E53 /* Assets.xcassets in Resources */,
 				AB31F39F2496A15600710AB9 /* user_location.png in Resources */,
 				AB8DB31224953B2C00519E53 /* Main.storyboard in Resources */,
